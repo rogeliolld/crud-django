@@ -1,0 +1,59 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Index</title>  
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<form method="POST" class="post-form" action="/update/{{contacto.id}}">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Update Details</h3>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Contacto Id:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="cid" id="id_cid" required maxlength="20" value="{{ contacto.cid }}"/>  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Nombre:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="cnombre" id="id_cnombre" required maxlength="100" value="{{ contacto.cnombre }}" />  
+    </div>  
+  </div>  
+  <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Apellidos:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="capellidos" id="id_capellidos" required maxlength="100" value="{{ contacto.capellidos }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Email:</label>  
+    <div class="col-sm-4">  
+        <input type="email" name="cemail" id="id_cemail" required maxlength="254" value="{{ contacto.cemail }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Teléfono:</label>  
+    <div class="col-sm-4">  
+        <input type="text" name="etelefono" id="id_etelefono" required maxlength="15" value="{{ contacto.etelefono }}" />  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-success">Update</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>

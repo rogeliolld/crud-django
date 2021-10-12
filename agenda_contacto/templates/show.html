@@ -1,0 +1,44 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Listado De Contactos</title>  
+    {% load static %} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body class="container mt-5">  
+    <div class="flex text-center py-3">
+        <h4 class="display-4">CRUD Agenda De Contacto</h4>
+    </div>
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>Contacto ID</th>  
+        <th>Contacto Nombre</th>  
+        <th>Contacto Apellidos</th>  
+        <th>Contacto Email</th>  
+        <th>Contacto Teléfono</th>  
+        <th>Acciones</th>  
+    </tr>  
+    </thead>  
+  <tbody>  
+{% for contacto in contactos %}  
+    <tr>  
+        <td>{{ contacto.cid }}</td>  
+        <td>{{ contacto.cnombre }}</td>  
+        <td>{{ contacto.capellidos }}</td>  
+        <td>{{ contacto.cemail }}</td>  
+        <td>{{ contacto.etelefono }}</td>  
+        <td>  
+            <a href="/edit/{{ contacto.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ contacto.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+  </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/contact" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
